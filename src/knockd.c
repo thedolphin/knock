@@ -1592,6 +1592,11 @@ void sniff(u_char* arg, const struct pcap_pkthdr* hdr, const u_char* packet)
 		}
 	}
 
+	/* seems to be a new guy */
+	if(found_attempts == NULL) {
+	    found_attempts = list_add(found_attempts, NULL);
+	}
+
 	while (found_attempts != NULL) {
 		attempt = (knocker_t*)found_attempts->data;
 
